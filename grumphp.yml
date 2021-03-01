@@ -1,0 +1,74 @@
+parameters:
+    process_timeout: 600
+    ascii:
+        succeeded: ~
+    hooks_dir: ~
+    hooks_preset: local
+    ignore_unstaged_changes: false
+    hide_circumvention_tip: false
+    parallel:
+        enabled: true
+        max_workers: 32
+    fixer:
+        enabled: true
+        fix_by_default: true
+    tasks:
+        phpcs:
+            standard: []
+            severity: ~
+            error_severity: ~
+            warning_severity: ~
+            tab_width: ~
+            report: full
+            report_width: ~
+            whitelist_patterns: ["plugins/{author}/*"]
+            encoding: ~
+            ignore_patterns: ["plugins/{author}/*/updates/*", "plugins/{author}/*/tests/*", "plugins/{author}/*/lang/*"]
+            sniffs: []
+            triggered_by: [php]
+        phpcsfixer2:
+            allow_risky: true
+            cache_file: ~
+            config: ./.php_cs
+            using_cache: true
+            config_contains_finder: true
+            verbose: true
+            diff: true
+            triggered_by: ['php']
+#        phpstan:
+#            configuration: "./phpstan.neon"
+#            level: 1
+#            autoload_file: "./vendor/nunomaduro/larastan/bootstrap.php"
+#            force_patterns: ["plugins/{author}"]
+#            ignore_patterns: ["bootstrap", "config", "modules", "plugins", "vendor"]
+#            triggered_by: [ 'php' ]
+#            memory_limit: "-1"
+        composer:
+            file: ./composer.json
+            no_check_all: false
+            no_check_lock: false
+            no_check_publish: false
+            with_dependencies: false
+            strict: false
+        phpmnd:
+            directory: '.'
+            whitelist_patterns: ['plugins/{author}/*']
+            exclude: []
+            exclude_name: ['plugins/{author}/*/updates']
+            exclude_path: ['vendor']
+            extensions: []
+            hint: false
+            ignore_numbers: []
+            ignore_strings: []
+            strings: false
+            triggered_by: ['php']
+#        git_blacklist:
+#            keywords:
+#                - "die"
+#                - "dd"
+#                - "trace_log"
+#                - "die;"
+#                - "var_dump"
+#                - "dump"
+#                - "exit;"
+#            triggered_by: [php]

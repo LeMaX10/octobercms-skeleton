@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="Project Standard">
+    <description>Project coding standart</description>
+    <rule ref="PSR12"/>
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="ignoreComments" value="true"/>
+        </properties>
+    </rule>
+    <arg name="tab-width" value="2"/>
+    <rule ref="Generic.WhiteSpace.ScopeIndent">
+        <properties>
+            <property name="indent" value="4"/>
+            <property name="tabIndent" value="false" />
+        </properties>
+    </rule>
+
+    <arg value="p" />
+
+    <config name="ignore_warnings_on_exit" value="0" />
+    <config name="ignore_errors_on_exit" value="1" />
+
+    <arg name="colors" />
+    <arg value="s" />
+
+    <exclude-pattern type="relative-root">plugins/{author}/*/updates/*</exclude-pattern>
+    <exclude-pattern type="relative-root">plugins/{author}/*/tests/*</exclude-pattern>
+    <exclude-pattern type="relative-root">plugins/{author}/*/lang/*</exclude-pattern>
+</ruleset>

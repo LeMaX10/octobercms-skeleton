@@ -1,0 +1,100 @@
+{
+    "name": "october/october",
+    "description": "October CMS",
+    "homepage": "https://octobercms.com",
+    "type": "project",
+    "keywords": ["october", "cms", "octobercms", "laravel"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexey Bobkov",
+            "email": "aleksey.bobkov@gmail.com",
+            "role": "Co-founder"
+        },
+        {
+            "name": "Samuel Georges",
+            "email": "daftspunky@gmail.com",
+            "role": "Co-founder"
+        },
+        {
+            "name": "Luke Towers",
+            "email": "octobercms@luketowers.ca",
+            "homepage": "https://luketowers.ca",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "paid": "https://octobercms.com/premium-support",
+        "issues": "https://github.com/octobercms/october/issues",
+        "forum": "https://octobercms.com/forum/",
+        "docs": "https://octobercms.com/docs/",
+        "source": "https://github.com/octobercms/october"
+    },
+    "repositories": [
+        {
+            "type":"vcs",
+            "url":"https://github.com/octoberrain/composer-merge-plugin"
+        },
+        {
+            "type":"vcs",
+            "url": "https://github.com/LeMaX10/sail.git"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "ext-curl": "*",
+        "october/rain": "1.1.*",
+        "october/system": "1.1.*",
+        "october/backend": "1.1.*",
+        "october/cms": "1.1.*",
+        "laravel/framework": "~6.0",
+        "wikimedia/composer-merge-plugin": "dev-feature/composer-v2 as 1.5.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "~1.9",
+        "phpunit/phpunit": "~6.5",
+        "phpunit/phpunit-selenium": "~1.2",
+        "meyfa/phpunit-assert-gd": "1.1.0",
+        "squizlabs/php_codesniffer": "3.*",
+        "jakub-onderka/php-parallel-lint": "^1.0",
+        "nunomaduro/larastan": "^0.7",
+        "friendsofphp/php-cs-fixer": "^2.13",
+        "phpro/grumphp": "0.18.*",
+        "povils/phpmnd": "^2.0",
+        "laravel/sail": "dev-octobercms"
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "php artisan key:generate",
+            "php artisan package:discover"
+        ],
+        "post-update-cmd": [
+            "php artisan october:version",
+            "php artisan package:discover"
+        ],
+        "check-style": "vendor/bin/phpcs --extensions=php plugins/{author}",
+        "fix-style": "vendor/bin/phpcbf --runtime-set ignore_warnings_on_exit 1 --extensions=php plugins/{author}"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "platform": {
+            "php": "7.4"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "merge-plugin": {
+            "include": [
+                "plugins/*/*/composer.json"
+            ],
+            "recurse": true,
+            "replace": false,
+            "merge-dev": true
+        }
+    }
+}
