@@ -23,26 +23,30 @@ parameters:
             report_width: ~
             whitelist_patterns: ["plugins/{author}/*"]
             encoding: ~
-            ignore_patterns: ["plugins/{author}/*/updates/*", "plugins/{author}/*/tests/*", "plugins/{author}/*/lang/*"]
+            ignore_patterns:
+                - /^plugins/{author}/*/(updates|tests|lang)/
             sniffs: []
             triggered_by: [php]
         phpcsfixer2:
             allow_risky: true
             cache_file: ~
-            config: ./.php_cs
+            config: ~
             using_cache: true
             config_contains_finder: true
             verbose: true
             diff: true
             triggered_by: ['php']
-#        phpstan:
-#            configuration: "./phpstan.neon"
-#            level: 1
-#            autoload_file: "./vendor/nunomaduro/larastan/bootstrap.php"
-#            force_patterns: ["plugins/{author}"]
-#            ignore_patterns: ["bootstrap", "config", "modules", "plugins", "vendor"]
-#            triggered_by: [ 'php' ]
-#            memory_limit: "-1"
+        phpstan:
+            autoload_file: ~
+            configuration: ~
+            level: ~
+            ignore_patterns:
+                - /^(config|modules|vendor)\/.*/
+                - /^plugins\/(?!{author}).*/
+                - /^plugins\/.*\/(updates|lang|tests)/
+                - /^(index|_ide_helper(_models)?|server)\.php/
+            triggered_by: [ 'php' ]
+            memory_limit: "-1"
         composer:
             file: ./composer.json
             no_check_all: false

@@ -34,10 +34,6 @@
         {
             "type":"vcs",
             "url":"https://github.com/octoberrain/composer-merge-plugin"
-        },
-        {
-            "type":"vcs",
-            "url": "https://github.com/LeMaX10/sail.git"
         }
     ],
     "require": {
@@ -61,11 +57,11 @@
         "meyfa/phpunit-assert-gd": "1.1.0",
         "squizlabs/php_codesniffer": "3.*",
         "jakub-onderka/php-parallel-lint": "^1.0",
-        "nunomaduro/larastan": "^0.7",
+        "lemax10/ocstan": "^0.1",
         "friendsofphp/php-cs-fixer": "^2.13",
-        "phpro/grumphp": "0.18.*",
+        "phpro/grumphp": "^0.18",
         "povils/phpmnd": "^2.0",
-        "laravel/sail": "dev-octobercms"
+        "lemax10/asail": "dev-master"
     },
     "scripts": {
         "post-create-project-cmd": [
