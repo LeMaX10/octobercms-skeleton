@@ -61,7 +61,7 @@
         "friendsofphp/php-cs-fixer": "^2.13",
         "phpro/grumphp": "^0.18",
         "povils/phpmnd": "^2.0",
-        "lemax10/asail": "dev-master"
+        "lemax10/asail": "1.x-dev"
     },
     "scripts": {
         "post-create-project-cmd": [
