@@ -1,4 +1,6 @@
 parameters:
+    git_hook_variables:
+        EXEC_GRUMPHP_COMMAND: 'vendor/bin/sail php'
     process_timeout: 600
     ascii:
         succeeded: ~
